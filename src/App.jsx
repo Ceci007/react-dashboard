@@ -11,12 +11,14 @@ import Home from "./components/Home";
 // import Contacts from './components/Contacts';
 import Sidebar from "./components/Sidebar";
 import ThemeContextProvider from './context/ThemeContextProvider';
+import Notifications from './components/Notifications';
 
 function App() {
   return (
     <Router>
       <ThemeContextProvider>
         <Sidebar />
+        <Notifications />
         <Routes>
           <Route path="/" element={<Home />} />
           {/**  
