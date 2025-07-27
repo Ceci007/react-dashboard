@@ -19,8 +19,8 @@ function App() {
     <Router>
       <ThemeContextProvider>
         <Sidebar />
-        <Navbar /> 
         <Notifications />
+        <Navbar />   
         <Routes>
           <Route path="/" element={<Home />} />
           {/**  
