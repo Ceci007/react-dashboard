@@ -6,7 +6,7 @@ const Home = () => {
   const {theme, toggleTheme} = useContext(ThemeCotext);
 
   return (
-    <div className="w-full h-screen leght:bg-white dark:bg-gray-800">
+    <div className="w-full h-full leght:bg-white dark:bg-gray-800">
       <p className="ml-[230px]">Home</p>
       <button className='ml-[230px] text-2xl text-dark' onClick={toggleTheme}>
         {theme === "light" ? <FaMoon /> : <FaRegSun />}
