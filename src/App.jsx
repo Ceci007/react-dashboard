@@ -12,12 +12,14 @@ import Home from "./components/Home";
 import Sidebar from "./components/Sidebar";
 import ThemeContextProvider from './context/ThemeContextProvider';
 import Notifications from './components/Notifications';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <Router>
       <ThemeContextProvider>
         <Sidebar />
+        <Navbar /> 
         <Notifications />
         <Routes>
           <Route path="/" element={<Home />} />
