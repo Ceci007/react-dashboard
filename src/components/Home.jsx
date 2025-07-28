@@ -164,11 +164,14 @@ const data = {
 
       <div className="grid grid-cols-1 gap-4 mt-6 sm:grid-cols-4">
         <div className="col-start-1 col-end-2 bg-gray-200 p-7 sm:col-start-1 sm:col-end-4 dark:bg-gray-700 rounded-2xl"> 
-          <div className="flex gap-5 mb-3">
+          <div className="flex flex-col gap-5 mb-3 md:flex-row">
+            <div className="flex items-center gap-5">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-200">Total Users</h3>
             <h4 className="text-sm text-gray-500">Total Projects</h4>
             <h4 className="text-sm text-gray-500">Operating Status</h4>
-            <div className="w-[1px] h-[20px] bg-gray-500"></div>
+            <div className="w-[1px] h-[20px] hidden md:block bg-gray-500"></div>
+            </div>
+            <div className="flex items-center gap-5">
             <div className="flex items-center gap-2">
               <span className={"w-[10px] h-[10px] bg-black dark:bg-[#9F9FF8] rounded-full"} />
               <h3 className="text-sm text-gray-900 dark:text-gray-200">This year</h3>
@@ -176,6 +179,7 @@ const data = {
             <div className="flex items-center gap-2">
               <span className={"w-[10px] h-[10px] rounded-full bg-black/30 dark:bg-white/30"} />
               <h3 className="text-sm text-gray-900 dark:text-gray-200">Last year</h3> 
+            </div>
             </div>
           </div>
           <Line options={options} data={data} />
