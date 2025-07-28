@@ -15,7 +15,7 @@ const Notifications = () => {
   const { theme } = useContext(ThemeCotext);
 
   return (
-    <aside className={"fixed z-60 overflow-y-auto max-h-screen h-auto right-0 top-0 w-[300px] hidden md:flex flex-col px-7 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 border-0 border-l-[1px] border-solid " + `${theme === "dark" ? "border-l-gray-700" : "border-l-gray-200"}`}>
+    <aside className={"fixed z-60 overflow-y-auto max-h-screen h-auto right-0 top-0 w-[300px] hidden xl:flex xl:flex-col px-7 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 border-0 border-l-[1px] border-solid " + `${theme === "dark" ? "border-l-gray-700" : "border-l-gray-200"}`}>
       <div>
         <h3 className="text-sm text-gray-900 dark:text-gray-200">Notifications</h3>
         <ul className="mt-2">
