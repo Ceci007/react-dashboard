@@ -184,8 +184,58 @@ const data = {
           </div>
           <Line options={options} data={data} />
         </div>
-        <div className="col-start-1 col-end-2 bg-gray-200 sm:col-start-4 sm:col-end-5 dark:bg-gray-700 rounded-2xl">
-          2
+        <div className="col-start-1 col-end-2 bg-gray-200 sm:col-start-4 sm:col-end-5 dark:bg-gray-700 rounded-2xl p-7">
+          <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-200">Traffic by website</h3>
+          <div className="mt-8"> 
+            <div className="flex items-center mt-6 gap-7">
+              <h3 className="text-sm text-gray-900 dark:text-gray-200">Google</h3>
+              <div className="flex gap-1">
+                <span className="w-[10px] h-[3px] rounded-md bg-black/90 dark:bg-white/90" />
+                <span className="w-[10px] h-[3px] rounded-md bg-black/40 dark:bg-white/40" /> 
+                <span className="w-[10px] h-[3px] rounded-md bg-black/20 dark:bg-white/20" />
+              </div>
+            </div>
+            <div className="flex items-center mt-6 gap-7">
+              <h3 className="text-sm text-gray-900 dark:text-gray-200">Youtube</h3>
+              <div className="flex gap-1">
+                <span className="w-[22px] h-[3px] bg-black/90 dark:bg-white/90 rounded-md" />
+                <span className="w-[22px] h-[3px] bg-black/40 dark:bg-white/40 rounded-md" />
+                <span className="w-[22px] h-[3px] bg-black/20 dark:bg-white/20 rounded-md" />
+              </div>
+            </div>
+            <div className="flex items-center mt-6 gap-7">
+              <h3 className="text-sm text-gray-900 dark:text-gray-200">Instagram</h3>
+              <div className="flex gap-1">
+                <span className="w-[14px] h-[3px] bg-black/90 dark:bg-white/90 rounded-md" />
+                <span className="w-[14px] h-[3px] bg-black/40 dark:bg-white/40 rounded-md" />
+                <span className="w-[14px] h-[3px] bg-black/20 dark:bg-white/20 rounded-md" />
+              </div>
+            </div>
+            <div className="flex items-center mt-6 gap-7">
+              <h3 className="text-sm text-gray-900 dark:text-gray-200">Pinterest</h3>
+              <div className="flex gap-1">
+                <span className="w-[26px] h-[3px] bg-black/90 dark:bg-white/90 rounded-md" />
+                <span className="w-[26px] h-[3px] bg-black/40 dark:bg-white/40 rounded-md" />
+                <span className="w-[26px] h-[3px] bg-black/20 dark:bg-white/20 rounded-md" />
+              </div>
+            </div>
+            <div className="flex items-center mt-6 gap-7">
+              <h3 className="text-sm text-gray-900 dark:text-gray-200">Facebook</h3>
+              <div className="flex gap-1">
+                <span className="w-[6px] h-[3px] bg-black/90 dark:bg-white/90 rounded-md" />
+                <span className="w-[6px] h-[3px] bg-black/40 dark:bg-white/40 rounded-md" />
+                <span className="w-[6px] h-[3px] bg-black/20 dark:bg-white/20 rounded-md" />
+              </div>
+            </div>
+            <div className="flex items-center mt-6 gap-7">
+              <h3 className="text-sm text-gray-900 dark:text-gray-200">Twiter</h3>
+              <div className="flex gap-1">
+                <span className="w-[18px] h-[3px] bg-black/90 dark:bg-white/90 rounded-md" />
+                <span className="w-[18px] h-[3px] bg-black/40 dark:bg-white/40 rounded-md" />
+                <span className="w-[18px] h-[3px] bg-black/20 dark:bg-white/20 rounded-md" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
      </div>
