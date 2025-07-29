@@ -7,62 +7,91 @@ import {
   LinearScale,
   PointElement,
   LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import { Line, Bar } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
+  BarElement, // Register BarElement
   Title,
   Tooltip,
   Legend
 );
 
 
-
 const Home = () => {
   const { theme } = useContext(ThemeCotext);
 
   // Chart data configuration
-const data = {
-  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'], // X-axis labels
-  datasets: [
-    {
-      label: 'Solid Line', // Label for the first line
-      data: [10, 15, 8, 22, 18, 25, 12], // Sample data points for the first line
-      borderColor: `${theme === "light" ? "rgb(0, 0, 0)" : "#9F9FF8"}`, // Line color
-      backgroundColor: `${theme === "light" ? "rgb(0, 0, 0)" : "#9F9FF8"}`, // Area under the line color
-      tension: 0.4, // Smooth the line curve
-      pointBackgroundColor: `${theme === "light" ? "rgb(0, 0, 0)" : "#9F9FF8"}`, // Color of data points
-      pointBorderColor: `${theme === "light" ? "rgba(0, 0, 0, 0.9)" : "#9F9FF8"}`, // Border color of data points
-      pointHoverBackgroundColor: `${theme === "light" ? "rgba(0, 0, 0, 0.9)" : '#7878d1'}`, // Hover background color of data points
-      pointHoverBorderColor: `${theme === "light" ? "rgb(0, 0, 0)" : "#7878d1"}`, // Hover border color of data points
-      pointRadius: 5, // Radius of data points
-      pointHoverRadius: 7, // Radius of data points on hover
-    },
-    {
-      label: 'Dashed Line', // Label for the second line
-      data: [5, 12, 18, 10, 25, 15, 28], // Sample data points for the second line
-      borderColor: `${theme === "light" ? "rgba(0, 0, 0, 0.2)" : "rgba(255, 255, 255, 0.2)"}`, // Line color
-      backgroundColor: `${theme === "light" ? "rgba(0, 0, 0, 0.2)" : "rgba(255, 255, 255, 0.2)"}`, // Area under the line color
-      tension: 0.4, // Smooth the line curve
-      borderDash: [5, 5], // Make the line dashed (5px dash, 5px space)
-      pointBackgroundColor: `${theme === "light" ? "rgba(0, 0, 0, 0.2)" : "rgba(255, 255, 255, 0.2)"}`, // Color of data points
-      pointBorderColor: "rgba(0, 0, 0, 0.2)", // Border color of data points
-      pointHoverBackgroundColor: `${theme === "light" ? "rgba(0, 0, 0, 0.9)" : "rgba(255, 255, 255, 0.9)"}`, // Hover background color of data points
-      pointHoverBorderColor: `${theme === "light" ? "rgba(0, 0, 0, 0.9)" : "rgba(255, 255, 255, 0.9)"}`, // Hover border color of data points
-      pointRadius: 5, // Radius of data points
-      pointHoverRadius: 7, // Radius of data points on hover
-    },
-  ],
-};
+  const lineChartData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'], // X-axis labels
+    datasets: [
+      {
+        label: 'Solid Line', // Label for the first line
+        data: [10, 15, 8, 22, 18, 25, 12], // Sample data points for the first line
+        borderColor: `${theme === "light" ? "rgb(0, 0, 0)" : "#9F9FF8"}`, // Line color
+        backgroundColor: `${theme === "light" ? "rgb(0, 0, 0)" : "#9F9FF8"}`, // Area under the line color
+        tension: 0.4, // Smooth the line curve
+        pointBackgroundColor: `${theme === "light" ? "rgb(0, 0, 0)" : "#9F9FF8"}`, // Color of data points
+        pointBorderColor: `${theme === "light" ? "rgba(0, 0, 0, 0.9)" : "#9F9FF8"}`, // Border color of data points
+        pointHoverBackgroundColor: `${theme === "light" ? "rgba(0, 0, 0, 0.9)" : '#7878d1'}`, // Hover background color of data points
+        pointHoverBorderColor: `${theme === "light" ? "rgb(0, 0, 0)" : "#7878d1"}`, // Hover border color of data points
+        pointRadius: 5, // Radius of data points
+        pointHoverRadius: 7, // Radius of data points on hover
+      },
+      {
+        label: 'Dashed Line', // Label for the second line
+        data: [5, 12, 18, 10, 25, 15, 28], // Sample data points for the second line
+        borderColor: `${theme === "light" ? "rgba(0, 0, 0, 0.2)" : "rgba(255, 255, 255, 0.2)"}`, // Line color
+        backgroundColor: `${theme === "light" ? "rgba(0, 0, 0, 0.2)" : "rgba(255, 255, 255, 0.2)"}`, // Area under the line color
+        tension: 0.4, // Smooth the line curve
+        borderDash: [5, 5], // Make the line dashed (5px dash, 5px space)
+        pointBackgroundColor: `${theme === "light" ? "rgba(0, 0, 0, 0.2)" : "rgba(255, 255, 255, 0.2)"}`, // Color of data points
+        pointBorderColor: "rgba(0, 0, 0, 0.2)", // Border color of data points
+        pointHoverBackgroundColor: `${theme === "light" ? "rgba(0, 0, 0, 0.9)" : "rgba(255, 255, 255, 0.9)"}`, // Hover background color of data points
+        pointHoverBorderColor: `${theme === "light" ? "rgba(0, 0, 0, 0.9)" : "rgba(255, 255, 255, 0.9)"}`, // Hover border color of data points
+        pointRadius: 5, // Radius of data points
+        pointHoverRadius: 7, // Radius of data points on hover
+      },
+    ],
+  };
 
-  const options = {
+  const barChartData = {
+    labels: ['Linux', 'Mac', 'iOS', 'Windows', 'Android', 'Other'], // X-axis labels
+    datasets: [
+      {
+        label: 'Users', // Label for the bars
+        data: [15, 22, 18, 28, 25, 10], // Sample data points for the bars
+        backgroundColor: [ // Colors for each bar
+          "rgba(159, 159, 248, 0.8)",
+          "rgba(150, 226, 214, 0.8)",
+          "rgba(0, 0, 0, 0.8)",
+          "rgba(146, 191, 255, 0.8)",
+          "rgba(174, 199, 237, 0.8)",
+          "rgba(148, 233, 184, 0.8)",
+        ],
+        borderColor: [ // Border colors for each bar
+          '#9F9FF8',
+          '#96E2D6',
+          '#000',
+          '#92BFFF',
+          '#AEC7ED',
+          '#94E9B8',
+        ],
+        borderWidth: 1, // Border width for bars
+        borderRadius: 8,
+      },
+    ],
+  };
+
+  const lineChartOptions = {
     responsive: true, // Make the chart responsive to container size
     plugins: {
       legend: {
@@ -99,9 +128,13 @@ const data = {
             family: 'Sans-serif',
           },
           color: theme === "light" ? "rgba(0, 0, 0, 0.8)" : "rgba(255, 255, 255, 0.8)", // Set Y-axis tick color
+          callback: function(value) {
+            return value + 'K'; // Add 'K' suffix to Y-axis labels
+          },
         },
         grid: {
           color: theme === "light" ? "rgba(0, 0, 0, 0.1)": "rgba(255, 255, 255, 0.1)", // Light grid lines
+          display: false,
         },
       },
       x: {
@@ -114,13 +147,73 @@ const data = {
         },
         grid: {
           color: theme === "light" ? "rgba(0, 0, 0, 0.1)": "rgba(255, 255, 255, 0.1)", // Light grid lines
+          display: false,
+        },
+      },
+    },
+  };
+
+  const barChartOptions = {
+    responsive: true, // Make the chart responsive to container size
+    plugins: {
+      legend: {
+        display: false, // Display the legend for bar chart
+        position: 'top', // Position the legend at the top
+        labels: {
+          font: {
+            size: 14, // Set font size for legend labels
+            family: 'Sans-serif', // Use Sans-serif font
+          },
+        },
+      },
+      title: {
+        display: false, // Display the chart title
+        text: 'Traffic by device', // Set the chart title text
+        font: {
+          size: 20, // Set font size for the title
+          family: 'Sans-serif',
+        },
+        color: '#333', // Set title color
+        align: 'start', // Align the title to the center
+      },
+    },
+    scales: {
+      y: {
+        min: 0, // Y-axis starts from 0
+        max: 30, // Y-axis goes up to 30
+        ticks: {
+          stepSize: 10, // Y-axis steps by 10
+          font: {
+            size: 12, // Set font size for Y-axis ticks
+            family: 'Sans-serif',
+          },
+          color: theme === "light" ? "rgba(0, 0, 0, 0.8)" : "rgba(255, 255, 255, 0.8)", // Set Y-axis tick color
+          callback: function(value) {
+            return value + 'K'; // Add 'K' suffix to Y-axis labels
+          }
+        },
+        grid: {
+          color: theme === "light" ? "rgba(0, 0, 0, 0.1)": "rgba(255, 255, 255, 0.1)", // Light grid lines
+          display: false,
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 12, // Set font size for X-axis ticks
+            family: 'Sans-serif', // Use Inter font
+          },
+          color: theme === "light" ? "rgba(0, 0, 0, 0.8)" : "rgba(255, 255, 255, 0.8)", // Set X-axis tick color
+        },
+        grid: {
+          display: false, // Hide X-axis grid lines for cleaner bar chart
         },
       },
     },
   };
 
   return (
-    <div className="w-full h-full px-7 py-3 pt-[50px] leght:bg-white dark:bg-gray-800 mt-[60px] flex items-center">
+    <div className="w-full h-auto px-7 py-3 pt-[50px] leght:bg-white dark:bg-gray-800 mt-[60px] flex items-center">
      <div className="flex flex-col w-full xl:w-[calc(100vw - 530px)] xl:ml-[230px] xl:mr-[300px]">
       <div className="flex justify-between">
         <div className="flex items-center">
@@ -162,7 +255,7 @@ const data = {
       </div> 
       </div>
 
-      <div className="grid grid-cols-1 gap-4 mt-6 sm:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 mt-6 lg:grid-cols-4">
         <div className="col-start-1 col-end-2 bg-gray-200 p-7 sm:col-start-1 sm:col-end-4 dark:bg-gray-700 rounded-2xl"> 
           <div className="flex flex-col gap-5 mb-3 md:flex-row">
             <div className="flex items-center gap-5">
@@ -182,7 +275,7 @@ const data = {
             </div>
             </div>
           </div>
-          <Line options={options} data={data} />
+          <Line options={lineChartOptions} data={lineChartData} />
         </div>
         <div className="col-start-1 col-end-2 bg-gray-200 sm:col-start-4 sm:col-end-5 dark:bg-gray-700 rounded-2xl p-7">
           <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-200">Traffic by website</h3>
@@ -237,6 +330,12 @@ const data = {
             </div>
           </div>
         </div>
+      </div>
+      <div className="grid grid-cols-1 gap-4 mt-4 lg:grid-cols-2">
+        <div className="col-start-1 col-end-2 bg-gray-200 dark:bg-gray-700 p-7 rounded-2xl">
+        <Bar options={barChartOptions} data={barChartData} />
+        </div>
+        <div className="col-start-1 col-end-2 bg-gray-200 dark:bg-gray-700 lg:col-start-2 lg:col-end-3 p-7 rounded-2xl">2</div>
       </div>
      </div>
     </div>

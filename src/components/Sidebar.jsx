@@ -15,7 +15,7 @@ const Sidebar = () => {
 	const { theme } = useContext(ThemeCotext);
 
   return (
-			<aside className={"fixed hidden xl:block z-60 px-7 py-3 top-0 left-0 w-[230px] h-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 border-0 border-r-[1px] border-solid " + `${theme === "dark" ? "border-r-gray-700" : "border-r-gray-200"}` }>
+			<aside style={{ zIndex: 60 }} className={"fixed hidden xl:block px-7 py-3 top-0 left-0 w-[230px] h-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 border-0 border-r-[1px] border-solid " + `${theme === "dark" ? "border-r-gray-700" : "border-r-gray-200"}` }>
       <div className="flex items-center gap-2">
         <img src={userPicture} alt="user" className="w-[34px] h-[34px] rounded-full" />
         <h3 className="text-sm text-gray-900 dark:text-gray-200">ByeWind</h3>
