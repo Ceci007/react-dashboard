@@ -1,3 +1,42 @@
-Admin Dashboard using React + Tailwind
+##  🧐 Admin Dashboard
 
-![React Admin Dashboard](https://github.com/YousafKhan1/React-Tailwind-Simple-Dashboard/assets/53962585/a0478564-2f60-4451-b907-2bf9dc770b39)
+> This is a page made with React.Js and Tailwind css framework, it has a light and dark theme.
+
+![app screenshot](./app_screenshot.png)
+
+## 🔧 Built With
+
+- React.Js
+- Tailwind (CSS)
+- Charts.Js and react-chartjs-2
+- Gemini (Gemini only to ask questions, but is not integrated in the project, mostly used to build the charts part)
+
+## 🔴 Live Demo
+
+[Live Demo](https://eclectic-rabanadas-2ae631.netlify.app/)
+
+
+## 🛠 Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+- Go to the main page of te repo.
+- Press the ```Code``` button and get the repo link.
+- Clone it using git.
+
+## ✒️ Authors
+
+👤 **Cecilia Benitez**
+
+- [@Ceci007](https://github.com/Ceci007)
+
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
