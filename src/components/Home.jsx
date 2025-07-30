@@ -11,18 +11,21 @@ import {
   Title,
   Tooltip,
   Legend,
+  ArcElement
 } from 'chart.js';
-import { Line, Bar } from 'react-chartjs-2';
+import { Line, Bar, Doughnut } from 'react-chartjs-2';
 
+// Register Chart.js components for all chart types
 ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
-  BarElement, // Register BarElement
+  BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ArcElement // Register ArcElement for doughnut chart
 );
 
 
@@ -87,6 +90,29 @@ const Home = () => {
         ],
         borderWidth: 1, // Border width for bars
         borderRadius: 8,
+      },
+    ],
+  };
+
+  const doughnutChartData = {
+    labels: ['United States', 'Canada', 'Mexico', 'Other'],
+    datasets: [
+      {
+        data: [52.1, 22.8, 13.9, 11.2], // Percentage points
+        backgroundColor: [
+          'rgba(0, 0, 0, 1)', // United States
+          'rgba(146, 191, 255, 1)', // Canada
+          'rgba(148, 233, 184, 1)', // Mexico
+          'rgba(174, 199, 237, 1)', // Other
+        ],
+        borderColor: [
+          theme === "light" ? "#e5e7eb" : "#364153",
+          theme === "light" ? "#e5e7eb" : "#364153",
+          theme === "light" ? "#e5e7eb" : "#364153",
+          theme === "light" ? "#e5e7eb" : "#364153",
+        ],
+        borderWidth: 5,
+        borderRadius: 8
       },
     ],
   };
@@ -212,6 +238,47 @@ const Home = () => {
     },
   };
 
+  // --- Doughnut Chart Options ---
+  const doughnutChartOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+        position: 'right', // Position legend to the right for doughnut chart
+        labels: {
+          font: {
+            size: 14,
+            family: 'Sans-serif',
+          },
+        },
+      },
+      title: {
+        display: false,
+        text: 'Traffic by location',
+        font: {
+          size: 20,
+          family: 'Sans-serif',
+        },
+        color: '#333',
+        align: 'center',
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            let label = context.label || '';
+            if (label) {
+              label += ': ';
+            }
+            if (context.parsed !== null) {
+              label += context.parsed + '%'; // Display percentage in tooltip
+            }
+            return label;
+          }
+        }
+      }
+    },
+  };
+
   return (
     <div className="w-full h-auto px-7 py-3 pt-[50px] leght:bg-white dark:bg-gray-800 mt-[60px] flex items-center">
      <div className="flex flex-col w-full xl:w-[calc(100vw - 530px)] xl:ml-[230px] xl:mr-[300px]">
@@ -332,10 +399,51 @@ const Home = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 gap-4 mt-4 lg:grid-cols-2">
-        <div className="col-start-1 col-end-2 bg-gray-200 dark:bg-gray-700 p-7 rounded-2xl">
+        <div className="items-center col-start-1 col-end-2 bg-gray-200 dark:bg-gray-700 p-7 rounded-2xl">
+        <h3 className="mb-8 text-sm font-semibold text-gray-900 dark:text-gray-200">Traffic by device</h3>
         <Bar options={barChartOptions} data={barChartData} />
         </div>
-        <div className="col-start-1 col-end-2 bg-gray-200 dark:bg-gray-700 lg:col-start-2 lg:col-end-3 p-7 rounded-2xl">2</div>
+        <div className="items-center col-start-1 col-end-2 bg-gray-200 dark:bg-gray-700 lg:col-start-2 lg:col-end-3 p-7 rounded-2xl">
+        <h3 className="mb-8 text-sm font-semibold text-gray-900 dark:text-gray-200">Traffic by location</h3>
+        <div className="grid grid-cols-2"> 
+        <div className="col-start-1 col-end-2">
+          <Doughnut options={doughnutChartOptions} data={doughnutChartData} />
+        </div>
+        <div className="col-start-2 col-end-3 ml-6">
+          <div className="flex items-center justify-between w-full py-2">
+            <div className="flex items-center gap-1">
+              <span className="bg-black rounded-full size-3"/>
+              <h3 className="text-sm text-gray-900 dark:text-gray-200">United States</h3>
+            </div>
+            <h4 className="text-sm text-gray-900 dark:text-gray-200">52.1%</h4>
+          </div>
+
+          <div className="flex items-center justify-between w-full py-2">
+            <div className="flex items-center gap-1">
+              <span className="bg-[#92BFFF] rounded-full size-3"/>
+              <h3 className="text-sm text-gray-900 dark:text-gray-200">Canada</h3>
+            </div>
+            <h4 className="text-sm text-gray-900 dark:text-gray-200">22.8%</h4>
+          </div>
+
+          <div className="flex items-center justify-between w-full py-2">
+            <div className="flex items-center gap-1">
+              <span className="bg-[#94E9B8] rounded-full size-3"/>
+              <h3 className="text-sm text-gray-900 dark:text-gray-200">Mexico</h3>
+            </div>
+            <h4 className="text-sm text-gray-900 dark:text-gray-200">13.9%</h4>
+          </div>
+
+          <div className="flex items-center justify-between w-full py-2">
+            <div className="flex items-center gap-1">
+              <span className="bg-[#AEC7ED] rounded-full size-3"/>
+              <h3 className="text-sm text-gray-900 dark:text-gray-200">Other</h3>
+            </div>
+            <h4 className="text-sm text-gray-900 dark:text-gray-200">11.2%</h4>
+          </div>
+        </div>
+        </div>
+        </div>
       </div>
      </div>
     </div>
