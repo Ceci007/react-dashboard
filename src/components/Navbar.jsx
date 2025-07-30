@@ -22,7 +22,7 @@ const Navbar = () => {
           <IoSearch className="absolute top-[50%] -translate-y-[50%] left-3" size={20} color="#99a1af" />
         </div>
         <div className="flex items-center gap-7">
-          <button className="relative bg-transparent border-none cursor-pointer z-60">
+          <button className="relative bg-transparent border-none cursor-pointer z-60 focus:outline-none">
           {theme === "light" ? <FaMoon size={20} color="rgba(0, 0, 0, 0.9)" onClick={toggleTheme}  /> : <FaRegSun size={20} color="rgba(255, 255, 255, 0.9)" onClick={toggleTheme}  />}
           </button>
           <SlReload size={20} color={theme === "light" ? "rgba(0, 0, 0, 0.9)" : "rgba(255, 255, 255, 0.9)"} />
