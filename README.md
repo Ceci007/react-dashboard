@@ -2,7 +2,7 @@
 
 > This is a page made with React.Js and Tailwind css framework, it has a light and dark theme and 3 types of charts.
 
-![app screenshot](./app_screenshot.png)
+![app screenshot]()
 
 ## 🔧 Built With
 
