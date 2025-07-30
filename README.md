@@ -1,6 +1,6 @@
 ##  🧐 Admin Dashboard
 
-> This is a page made with React.Js and Tailwind css framework, it has a light and dark theme.
+> This is a page made with React.Js and Tailwind css framework, it has a light and dark theme and 3 types of charts.
 
 ![app screenshot](./app_screenshot.png)
 
@@ -35,7 +35,7 @@ To get a local copy up and running follow these simple example steps.
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/Ceci007/react-dashboard/issues).
 
 ## 📝 License
 
