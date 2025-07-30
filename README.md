@@ -14,7 +14,7 @@
 
 ## 🔴 Live Demo
 
-[Live Demo](https://eclectic-rabanadas-2ae631.netlify.app/)
+[Live Demo](https://venerable-sorbet-31bcd6.netlify.app/)
 
 
 ## 🛠 Getting Started

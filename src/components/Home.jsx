@@ -405,11 +405,11 @@ const Home = () => {
         </div>
         <div className="items-center col-start-1 col-end-2 bg-gray-200 dark:bg-gray-700 lg:col-start-2 lg:col-end-3 p-7 rounded-2xl">
         <h3 className="mb-8 text-sm font-semibold text-gray-900 dark:text-gray-200">Traffic by location</h3>
-        <div className="grid grid-cols-2"> 
-        <div className="col-start-1 col-end-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2"> 
+        <div className="flex justify-center col-start-1 col-end-2 sm:justify-start">
           <Doughnut options={doughnutChartOptions} data={doughnutChartData} />
         </div>
-        <div className="col-start-2 col-end-3 ml-6">
+        <div className="col-start-1 col-end-2 ml-6 sm:col-start-2 sm:col-end-3">
           <div className="flex items-center justify-between w-full py-2">
             <div className="flex items-center gap-1">
               <span className="bg-black rounded-full size-3"/>
